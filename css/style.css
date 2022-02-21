@@ -1,0 +1,164 @@
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+/*
+================= Background =================
+*/
+
+/*  Title: Pure CSS Gradient Background Animation
+    Credit: Manuel Pinto
+    Code: https://codepen.io/P1N2O/pen/pyBNzX */
+
+body {
+    height: 100vh;
+    background: linear-gradient(225deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* End of background animation */
+
+
+/*
+================= Base Styles =================
+*/
+
+html {
+    font-size: 62.5%;
+}
+
+
+a {
+    /* color: #000; */
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+================= Layout =================
+*/
+
+.buttons,
+.button-list,
+.list-one,
+.list-two,
+.list-three,
+.list-four,
+.list-five {
+    display: flex;
+}
+
+.button-list {
+    flex-direction: column;
+}
+.buttons {
+    justify-content: center;
+}
+
+/*
+================= Additional Styles =================
+*/
+
+/* 
+---------------- header ----------------
+*/
+
+.title {
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    margin: 2rem;
+}
+
+
+/* 
+---------------- calculator ----------------
+*/
+
+/* - - - - - container - - - - - */
+
+.container {
+    background: white;
+    border-radius: 1.5rem;
+    height: 62rem;
+    width: 40rem;
+    margin: 0 auto;
+}
+
+/* - - - - - screen - - - - - */
+
+.screen {
+    background: rgb(38, 38, 38);
+    border-radius: 1.5rem 1.5rem 0 0;
+    height: 12rem;
+    width: 40rem;
+    margin: 0 auto;
+    padding: 3rem 3rem 0 0;
+    text-align: right;
+}
+
+.computed {
+    color: #cecece;
+    font-size: 2rem;
+}
+
+.result {
+    color: #fff;
+    font-size: 3.5rem;
+}
+
+/* - - - - - buttons - - - - - */
+
+li button {
+    height: 10rem;
+    width: 10rem;
+    font-size: 2rem;
+    background: transparent;
+    border: none;
+}
+
+#zero button {
+    width: 20rem;
+}
+
+#clear button {
+    background: red;
+}
+
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This app emulates a simple calculator">
+    	<meta name="keywords" content="calculator, numbers, addition, subtraction, division, multiplication">
+
+		<title>Calculator</title>
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet"> 
+	</head>
+	<body>
+        
+        <header class="header">
+            <h1 class="title">Simple Calculator</h1>
+        </header>
+
+        <main class="calculator">
+            <div class="container">
+                <section class="screen">
+                    <h3 class="computed">5+5=</h3>
+                    <h2 class="result">10</h2>
+                </section>
+
+                <section class="buttons">
+                    <ul class="button-list">
+                        <li class="row-one">
+                            <ul class="list-one">
+                                <li id="clear"><button>c</button></li>
+                                <li id="sign"><button>+/-</button></li>
+                                <li id="percent"><button>%</button></li>
+                                <li id="divide"><button>/</button></li>
+                            </ul>
+                        </li>
+                        <li class="row-two">
+                            <ul class="list-two">
+                                <li id="seven"><button>7</button></li>
+                                <li id="eight"><button>8</button></li>
+                                <li id="nine"><button>9</button></li>
+                                <li id="multiply"><button>x</button></li>
+                            </ul>
+                        </li>
+                        <li class="row-three">
+                            <ul class="list-three">
+                                <li id="four"><button>4</button></li>
+                                <li id="five"><button>5</button></li>
+                                <li id="six"><button>6</button></li>
+                                <li id="subtract"><button>-</button></li>
+                            </ul>
+                        </li>
+                        <li class="row-four">
+                            <ul class="list-four">
+                                <li id="one"><button>1</button></li>
+                                <li id="two"><button>2</button></li>
+                                <li id="three"><button>3</button></li>
+                                <li id="add"><button>+</button></li>
+                            </ul>
+                        </li>
+                        <li class="row-five">
+                            <ul class="list-five">
+                                <li id="zero"><button>0</button></li>
+                                <li id="decimal"><button>.</button></li>
+                                <li id="equals"><button>=</button></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
