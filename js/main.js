@@ -92,122 +92,46 @@ function zero() {
 }
 
 function one() {
-    if (a === 0) {
-        a = 1;
-    } else {
-        a = a * 10 + 1;
-    }
-
-    if (operator === undefined) {
-        document.querySelector('#computed').innerText = a; 
-    }
-
-    document.querySelector('#result').innerText = a;
+    shift(1)
 }
 
 function two() {
-    if (a === 0) {
-        a = 2;
-    } else {
-        a = a * 10 + 2;
-    }
-
-    if (operator === undefined) {
-        document.querySelector('#computed').innerText = a; 
-    }
-
-    document.querySelector('#result').innerText = a;
+    shift(2);
 }
 
 function three() {
-    if (a === 0) {
-        a = 3;
-    } else {
-        a = a * 10 + 3;
-    }
-
-    if (operator === undefined) {
-        document.querySelector('#computed').innerText = a; 
-    }
-
-    document.querySelector('#result').innerText = a;
+    shift(3);
 }
 
 function four() {
-    if (a === 0) {
-        a = 4;
-    } else {
-        a = a * 10 + 4;
-    }
-
-    if (operator === undefined) {
-        document.querySelector('#computed').innerText = a; 
-    }
-
-    document.querySelector('#result').innerText = a;
+    shift(4);
 }
 
 function five() {
-    if (a === 0) {
-        a = 5;
-    } else {
-        a = a * 10 + 5;
-    }
-
-    if (operator === undefined) {
-        document.querySelector('#computed').innerText = a; 
-    }
-
-    document.querySelector('#result').innerText = a;
+    shift(5);
 }
 
 function six() {
-    if (a === 0) {
-        a = 6;
-    } else {
-        a = a * 10 + 6;
-    }
-
-    if (operator === undefined) {
-        document.querySelector('#computed').innerText = a; 
-    }
-
-    document.querySelector('#result').innerText = a;
+    shift(6);
 }
 
 function seven() {
-    if (a === 0) {
-        a = 7;
-    } else {
-        a = a * 10 + 7;
-    }
-
-    if (operator === undefined) {
-        document.querySelector('#computed').innerText = a; 
-    }
-
-    document.querySelector('#result').innerText = a;
+    shift(7);
 }
 
 function eight() {
-    if (a === 0) {
-        a = 8;
-    } else {
-        a = a * 10 + 8;
-    }
-
-    if (operator === undefined) {
-        document.querySelector('#computed').innerText = a; 
-    }
-
-    document.querySelector('#result').innerText = a;
+    shift(8);
 }
 
 function nine() {
+    shift(9);
+}
+
+function shift(val) {
     if (a === 0) {
-        a = 9;
+        a = val;
     } else {
-        a = a * 10 + 9;
+        a = a * 10 + val;
     }
 
     if (operator === undefined) {
