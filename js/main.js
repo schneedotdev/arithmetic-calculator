@@ -1,6 +1,6 @@
 let result = 0;
-let a = 0;
 let b = 0;
+let a = 0;
 let operator;
 
 /* Event Listeners */ 
@@ -31,64 +31,87 @@ document.querySelector('#clear').addEventListener('click', clear);
 
 function clear() {
     result = 0
-    a = 0;
-    b = 0;
-    operator = undefined;
+    reset();
     document.querySelector('#computed').innerText = result;
     document.querySelector('#result').innerText = result;
 }
 
-function add() {
-    document.querySelector('#computed').innerText = `${a} + `;
-    operator = "+";
-    b = a;
+function reset() {
     a = 0;
-    document.querySelector('#result').innerText = a;
+    b = 0;
+    operator = undefined;
+}
+
+function add() {
+    operator = '+';
+    document.querySelector('#computed').innerText = `${b} ${operator} `;
+    
+    moveVal();
 }
 
 function subtract() {
-    document.querySelector('#computed').innerText = `${a} - `;
-    operator = "-";
-    b = a;
-    a = 0;
-    document.querySelector('#result').innerText = a;
+    operator = '-';
+    document.querySelector('#computed').innerText = `${b} ${operator} `;
+    
+    moveVal();
 }
 
 function multiply() {
-    document.querySelector('#computed').innerText = `${a} * `;
-    operator = "*"
-    b = a;
-    a = 0;
-    document.querySelector('#result').innerText = a;
+    operator = '*';
+    document.querySelector('#computed').innerText = `${b} ${operator} `;
+    
+    moveVal();
 }
 
 function divide() {
-    document.querySelector('#computed').innerText = `${a} / `;
-    operator = "/"
-    b = a;
-    a = 0;
-    document.querySelector('#result').innerText = a;
+    operator = '/';
+    document.querySelector('#computed').innerText = `${b} ${operator} `;
+    
+    moveVal();
+}
+
+function moveVal() {
+    a = b;
+    b = 0;
+    document.querySelector('#result').innerText = b;
 }
 
 function equals() {
-    // switch(operator) {
-    //     case null:
-    //         document.querySelector('#result').innerText = a;
-    //         break;
-    //     case '+':
-    //         a +
-    //         document.querySelector('#result').innerText = a;
-    // }
+    switch(operator) {
+        case undefined:
+            document.querySelector('#result').innerText = b;
+            break;
+        case '+':
+            result = a + b;
+            document.querySelector('#computed').innerText = `${a} + ${b} =`
+            document.querySelector('#result').innerText = result;
+            reset();
+            break;
+        case '-':
+            result = a - b;
+            document.querySelector('#computed').innerText = `${a} - ${b} =`
+            document.querySelector('#result').innerText = result;
+            reset();
+            break;
+        case '*':
+            result = a * b;
+            document.querySelector('#computed').innerText = `${a} * ${b} =`
+            document.querySelector('#result').innerText = result;
+            reset();
+            break;
+        case '/':
+            result = a / b;
+            document.querySelector('#computed').innerText = `${a} / ${b} =`
+            document.querySelector('#result').innerText = result;
+            reset();
+            break;
+    }
 }
 
 function zero() {
-    a *= 10;
-
-    if (operator === undefined) {
-        document.querySelector('#computed').innerText = a; 
-    }
-
-    document.querySelector('#result').innerText = a;
+    b *= 10;
+    
+    update();
 }
 
 function one() {
@@ -127,16 +150,22 @@ function nine() {
     shift(9);
 }
 
+// Reusable functions
+
 function shift(val) {
-    if (a === 0) {
-        a = val;
+    if (b === 0) {
+        b = val;
     } else {
-        a = a * 10 + val;
+        b = b * 10 + val;
     }
 
+    update();
+}
+
+function update() {
     if (operator === undefined) {
-        document.querySelector('#computed').innerText = a; 
+        document.querySelector('#computed').innerText = b; 
     }
 
-    document.querySelector('#result').innerText = a;
+    document.querySelector('#result').innerText = b;
 }
