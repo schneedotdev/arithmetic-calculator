@@ -27,7 +27,7 @@
 
 body {
     height: 100vh;
-    background: linear-gradient(225deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(225deg, #ee7752, #e73c7e, #23a6d5, #28b485);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
 }
@@ -108,6 +108,10 @@ h1, h2, h3, h4, h5, h6, p, ul {
     margin: 2rem 0;
 }
 
+.header {
+    text-shadow: .25rem .25rem .25rem rgb(0, 0, 0, .4);
+}
+
 .title {
     font-size: 3rem;
     margin-bottom: .5rem;
@@ -140,9 +144,15 @@ h1, h2, h3, h4, h5, h6, p, ul {
     border-radius: 1.5rem 1.5rem 0 0;
     height: 12rem;
     width: 40rem;
-    margin: 0 auto;
-    padding: 3rem 3rem 0 0;
+    /* padding: 3rem 3rem 0 0; ADD BACK IF REMOVE THE MODEL */
+    padding: 1.5rem 3rem 0 0;
     text-align: right;
+    color: #fff;
+}
+#model {
+    color: yellowgreen;
+    text-align: left;
+    padding-left: 3rem;
 }
 
 #computed {
@@ -151,11 +161,30 @@ h1, h2, h3, h4, h5, h6, p, ul {
 }
 
 #result {
-    color: #fff;
     font-size: 3.5rem;
 }
 
 /* - - - - - buttons - - - - - */
+
+.button-list > li {
+    border-top: 1px solid rgb(115, 115, 115);
+}
+
+#percent button,
+#nine button,
+#six button,
+#three button,
+#decimal button {
+    border-right: 1px solid rgb(115, 115, 115);
+    border-left: 1px solid rgb(115, 115, 115);
+}
+
+#clear button,
+#seven button,
+#four button,
+#one button {
+    border-right: 1px solid rgb(115, 115, 115); 
+}
 
 li button {
     height: 10rem;
@@ -163,6 +192,19 @@ li button {
     font-size: 2.25rem;
     font-weight: 300;
     border: none;
+}
+
+#add button,
+#subtract button,
+#divide button,
+#multiply button,
+#equals button {
+    background: rgb(143, 143, 143);
+}
+
+#sign button,
+#percent button {
+    background: rgb(184, 184, 184);
 }
 
 #zero button {
@@ -175,7 +217,7 @@ li button {
 }
 
 #clear button {
-    background: red;
+    background: rgb(255, 62, 62);
 }
 
 #clear button:hover {

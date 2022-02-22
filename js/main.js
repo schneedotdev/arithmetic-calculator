@@ -1,6 +1,7 @@
 let result = 0;
 let a = 0;
 let b = 0;
+let operator;
 
 /* Event Listeners */ 
 
@@ -17,10 +18,11 @@ document.querySelector('#eight').addEventListener('click', eight);
 document.querySelector('#nine').addEventListener('click', nine);
 
 // Operators
-// document.querySelector('#add').addEventListener('click', );
-// document.querySelector('#subtract').addEventListener('click', );
-// document.querySelector('#multiply').addEventListener('click', );
-// document.querySelector('#divide').addEventListener('click', );
+document.querySelector('#add').addEventListener('click', add);
+document.querySelector('#subtract').addEventListener('click', subtract);
+document.querySelector('#multiply').addEventListener('click', multiply);
+document.querySelector('#divide').addEventListener('click', divide);
+document.querySelector('#equals').addEventListener('click', equals);
 
 // Additional
 document.querySelector('#clear').addEventListener('click', clear);
@@ -31,11 +33,61 @@ function clear() {
     result = 0
     a = 0;
     b = 0;
+    operator = undefined;
+    document.querySelector('#computed').innerText = result;
     document.querySelector('#result').innerText = result;
+}
+
+function add() {
+    document.querySelector('#computed').innerText = `${a} + `;
+    operator = "+";
+    b = a;
+    a = 0;
+    document.querySelector('#result').innerText = a;
+}
+
+function subtract() {
+    document.querySelector('#computed').innerText = `${a} - `;
+    operator = "-";
+    b = a;
+    a = 0;
+    document.querySelector('#result').innerText = a;
+}
+
+function multiply() {
+    document.querySelector('#computed').innerText = `${a} * `;
+    operator = "*"
+    b = a;
+    a = 0;
+    document.querySelector('#result').innerText = a;
+}
+
+function divide() {
+    document.querySelector('#computed').innerText = `${a} / `;
+    operator = "/"
+    b = a;
+    a = 0;
+    document.querySelector('#result').innerText = a;
+}
+
+function equals() {
+    // switch(operator) {
+    //     case null:
+    //         document.querySelector('#result').innerText = a;
+    //         break;
+    //     case '+':
+    //         a +
+    //         document.querySelector('#result').innerText = a;
+    // }
 }
 
 function zero() {
     a *= 10;
+
+    if (operator === undefined) {
+        document.querySelector('#computed').innerText = a; 
+    }
+
     document.querySelector('#result').innerText = a;
 }
 
@@ -44,6 +96,10 @@ function one() {
         a = 1;
     } else {
         a = a * 10 + 1;
+    }
+
+    if (operator === undefined) {
+        document.querySelector('#computed').innerText = a; 
     }
 
     document.querySelector('#result').innerText = a;
@@ -56,6 +112,10 @@ function two() {
         a = a * 10 + 2;
     }
 
+    if (operator === undefined) {
+        document.querySelector('#computed').innerText = a; 
+    }
+
     document.querySelector('#result').innerText = a;
 }
 
@@ -64,6 +124,10 @@ function three() {
         a = 3;
     } else {
         a = a * 10 + 3;
+    }
+
+    if (operator === undefined) {
+        document.querySelector('#computed').innerText = a; 
     }
 
     document.querySelector('#result').innerText = a;
@@ -76,6 +140,10 @@ function four() {
         a = a * 10 + 4;
     }
 
+    if (operator === undefined) {
+        document.querySelector('#computed').innerText = a; 
+    }
+
     document.querySelector('#result').innerText = a;
 }
 
@@ -84,6 +152,10 @@ function five() {
         a = 5;
     } else {
         a = a * 10 + 5;
+    }
+
+    if (operator === undefined) {
+        document.querySelector('#computed').innerText = a; 
     }
 
     document.querySelector('#result').innerText = a;
@@ -96,6 +168,10 @@ function six() {
         a = a * 10 + 6;
     }
 
+    if (operator === undefined) {
+        document.querySelector('#computed').innerText = a; 
+    }
+
     document.querySelector('#result').innerText = a;
 }
 
@@ -104,6 +180,10 @@ function seven() {
         a = 7;
     } else {
         a = a * 10 + 7;
+    }
+
+    if (operator === undefined) {
+        document.querySelector('#computed').innerText = a; 
     }
 
     document.querySelector('#result').innerText = a;
@@ -116,6 +196,10 @@ function eight() {
         a = a * 10 + 8;
     }
 
+    if (operator === undefined) {
+        document.querySelector('#computed').innerText = a; 
+    }
+
     document.querySelector('#result').innerText = a;
 }
 
@@ -124,6 +208,10 @@ function nine() {
         a = 9;
     } else {
         a = a * 10 + 9;
+    }
+
+    if (operator === undefined) {
+        document.querySelector('#computed').innerText = a; 
     }
 
     document.querySelector('#result').innerText = a;
