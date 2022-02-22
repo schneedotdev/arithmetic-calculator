@@ -129,7 +129,6 @@ h1, h2, h3, h4, h5, h6, p, ul {
 /* - - - - - container - - - - - */
 
 .container {
-    background: white;
     border-radius: 1.5rem;
     height: 62rem;
     width: 40rem;
@@ -140,12 +139,11 @@ h1, h2, h3, h4, h5, h6, p, ul {
 /* - - - - - screen - - - - - */
 
 .screen {
-    background: rgb(38, 38, 38);
+    background: rgba(38, 38, 38, .8);
     border-radius: 1.5rem 1.5rem 0 0;
-    height: 12rem;
+    height: 14rem;
     width: 40rem;
-    /* padding: 3rem 3rem 0 0; ADD BACK IF REMOVE THE MODEL */
-    padding: 1.5rem 3rem 0 0;
+    padding: 1.5rem 3rem 0 3rem;
     text-align: right;
     color: #fff;
 }
@@ -154,6 +152,12 @@ h1, h2, h3, h4, h5, h6, p, ul {
     color: yellowgreen;
     text-align: left;
     padding-left: 3rem;
+}
+
+#result,
+#computed {
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 #computed {
@@ -195,19 +199,6 @@ li button {
     border: none;
 }
 
-#add button,
-#subtract button,
-#divide button,
-#multiply button,
-#equals button {
-    background: rgb(143, 143, 143);
-}
-
-#sign button,
-#percent button {
-    background: rgb(184, 184, 184);
-}
-
 #zero button {
     width: 20rem;
     border-radius: 0 0 0 1.5rem;
@@ -217,12 +208,38 @@ li button {
     border-radius: 0 0 1.5rem 0;
 }
 
+#add button,
+#subtract button,
+#divide button,
+#multiply button,
+#equals button {
+    background: rgb(140, 140, 140);
+}
+
+#add button:hover,
+#subtract button:hover,
+#divide button:hover,
+#multiply button:hover,
+#equals button:hover {
+    background: rgb(110, 110, 110);
+}
+
+#sign button,
+#percent button {
+    background: rgb(180, 180, 180);
+}
+
+#sign button:hover,
+#percent button:hover {
+    background: rgb(150, 150, 150);
+}
+
 #clear button {
-    background: rgb(255, 62, 62);
+    background: rgb(255, 60, 60);
 }
 
 #clear button:hover {
-    background: rgb(169, 25, 25);
+    background: rgb(225, 30, 30);
 }
 
 

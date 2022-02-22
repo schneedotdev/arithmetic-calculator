@@ -1,9 +1,3 @@
-let result = 0;
-let b = 0;
-let a = 0;
-let operator;
-let equalsWasPressed = false;
-
 /* Event Listeners */ 
 
 // Numbers
@@ -27,31 +21,118 @@ document.querySelector('#equals').addEventListener('click', equals);
 
 // Additional
 document.querySelector('#clear').addEventListener('click', clear);
-// document.querySelector('#sign').addEventListener('click', );
-// document.querySelector('#percent').addEventListener('click', );
+document.querySelector('#sign').addEventListener('click', sign);
+document.querySelector('#percent').addEventListener('click', percent);
+document.querySelector('#decimal').addEventListener('click', decimal);
+
+/* Variables */
+
+let a = '0'
+let b = '0';
+let result = '0';
+let operator;
+let equalsWasPressed = false;
+
+/* Functions */
+
+// Number Button Functions
+
+function zero() {
+    append('0');
+}
+
+function one() {
+    append('1')
+}
+
+function two() {
+    append('2');
+}
+
+function three() {
+    append('3');
+}
+
+function four() {
+    append('4');
+}
+
+function five() {
+    append('5');
+}
+
+function six() {
+    append('6');
+}
+
+function seven() {
+    append('7');
+}
+
+function eight() {
+    append('8');
+}
+
+function nine() {
+    append('9');
+}
+
+function append(val) {
+    if (val !== '0') {
+        if(b === '0') {
+            b = val.toString();
+        } else {
+            b += val.toString();
+        }
+    } else {
+        if (b !== '0') {
+            b += '0';
+        }
+    }
+
+    if (operator === undefined) {
+        document.querySelector('#computed').innerText = Number(b); 
+    }
+
+    document.querySelector('#result').innerText = Number(b);
+}
+
+// Special Button Functions
 
 function clear() {
-    result = 0
-    reset();
-    document.querySelector('#computed').innerText = result;
-    document.querySelector('#result').innerText = result;
+    a = '0';
+    b = '0';
+    operator = undefined;
+    document.querySelector('#computed').innerText = Number(b);
+    document.querySelector('#result').innerText = Number(b);
 }
 
-function reset() {
-    a = 0;
-    b = 0;
-    operator = undefined;
-    equalsWasPressed = false;
+function sign() {
+    b = String(Number(b) * -1);
+    document.querySelector('#computed').innerText = Number(b);
+    document.querySelector('#result').innerText = Number(b);
 }
+
+function percent() {
+    b = String(Number(b) / 100);
+    document.querySelector('#computed').innerText = Number(b);
+    document.querySelector('#result').innerText = Number(b);
+}
+
+function decimal() {
+    
+}
+
+// Operation Button Functions
 
 function add() {
     operator = '+';
 
     if (equalsWasPressed) {
         b = result;
-        document.querySelector('#computed').innerText = `${result} ${operator} `;
+        document.querySelector('#computed').innerText = `${Number(result)} ${operator} `;
     } else {
-        document.querySelector('#computed').innerText = `${b} ${operator} `;
+        document.querySelector('#computed').innerText = `${Number(b)} ${operator} `;
     }
 
     moveVal();
@@ -62,9 +143,9 @@ function subtract() {
 
     if (equalsWasPressed) {
         b = result;
-        document.querySelector('#computed').innerText = `${result} ${operator} `;
+        document.querySelector('#computed').innerText = `${Number(result)} ${operator} `;
     } else {
-        document.querySelector('#computed').innerText = `${b} ${operator} `;
+        document.querySelector('#computed').innerText = `${Number(b)} ${operator} `;
     }
 
     moveVal();
@@ -75,9 +156,9 @@ function multiply() {
 
     if (equalsWasPressed) {
         b = result;
-        document.querySelector('#computed').innerText = `${result} ${operator} `;
+        document.querySelector('#computed').innerText = `${Number(result)} ${operator} `;
     } else {
-        document.querySelector('#computed').innerText = `${b} ${operator} `;
+        document.querySelector('#computed').innerText = `${Number(b)} ${operator} `;
     }
 
     moveVal();
@@ -88,9 +169,9 @@ function divide() {
 
     if (equalsWasPressed) {
         b = result;
-        document.querySelector('#computed').innerText = `${result} ${operator} `;
+        document.querySelector('#computed').innerText = `${Number(result)} ${operator} `;
     } else {
-        document.querySelector('#computed').innerText = `${b} ${operator} `;
+        document.querySelector('#computed').innerText = `${Number(b)} ${operator} `;
     }
 
     moveVal();
@@ -98,37 +179,41 @@ function divide() {
 
 function moveVal() {
     a = b;
-    b = 0;
-    document.querySelector('#result').innerText = b;
+    b = '0';
+    document.querySelector('#result').innerText = Number(b);
 }
 
 function equals() {
+    // if(equalsWasPressed && operator !== undefined) {
+    //     a = result;
+    // }
+
     switch(operator) {
         case undefined:
             document.querySelector('#result').innerText = b;
             break;
         case '+':
-            result = a + b;
-            document.querySelector('#computed').innerText = `${a} + ${b} =`
-            document.querySelector('#result').innerText = result;
+            result = String(Number(a) + Number(b));
+            document.querySelector('#computed').innerText = `${Number(a)} + ${Number(b)} =`
+            document.querySelector('#result').innerText = Number(result);
             reset();
             break;
         case '-':
-            result = a - b;
-            document.querySelector('#computed').innerText = `${a} - ${b} =`
-            document.querySelector('#result').innerText = result;
+            result = String(Number(a) - Number(b));
+            document.querySelector('#computed').innerText = `${Number(a)} - ${Number(b)} =`
+            document.querySelector('#result').innerText = Number(result);
             reset();
             break;
         case '*':
-            result = a * b;
-            document.querySelector('#computed').innerText = `${a} * ${b} =`
-            document.querySelector('#result').innerText = result;
+            result = String(Number(a) * Number(b));
+            document.querySelector('#computed').innerText = `${Number(a)} * ${Number(b)} =`
+            document.querySelector('#result').innerText = Number(result);
             reset();
             break;
         case '/':
             result = a / b;
-            document.querySelector('#computed').innerText = `${a} / ${b} =`
-            document.querySelector('#result').innerText = result;
+            document.querySelector('#computed').innerText = `${Number(a)} / ${Number(b)} =`
+            document.querySelector('#result').innerText = Number(result);
             reset();
             break;
     }
@@ -136,64 +221,10 @@ function equals() {
     equalsWasPressed = true;
 }
 
-function zero() {
-    b *= 10;
-
-    update();
-}
-
-function one() {
-    shift(1)
-}
-
-function two() {
-    shift(2);
-}
-
-function three() {
-    shift(3);
-}
-
-function four() {
-    shift(4);
-}
-
-function five() {
-    shift(5);
-}
-
-function six() {
-    shift(6);
-}
-
-function seven() {
-    shift(7);
-}
-
-function eight() {
-    shift(8);
-}
-
-function nine() {
-    shift(9);
-}
-
-// Reusable functions
-
-function shift(val) {
-    if (b === 0) {
-        b = val;
-    } else {
-        b = b * 10 + val;
-    }
-
-    update();
-}
-
-function update() {
-    if (operator === undefined) {
-        document.querySelector('#computed').innerText = b; 
-    }
-
-    document.querySelector('#result').innerText = b;
+function reset() {
+    a = result;
+    b = '0';
+    result = '0'; // Maybe remove
+    operator = undefined;
+    equalsWasPressed = false;
 }
