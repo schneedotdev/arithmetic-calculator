@@ -102,7 +102,9 @@ function append(val) {
 function clear() {
     a = '0';
     b = '0';
+    result = '0';
     operator = undefined;
+    equalsWasPressed = false;
     document.querySelector('#computed').innerText = Number(b);
     document.querySelector('#result').innerText = Number(b);
 }
@@ -224,7 +226,7 @@ function equals() {
 function reset() {
     a = result;
     b = '0';
-    result = '0'; // Maybe remove
+    result = '0';
     operator = undefined;
     equalsWasPressed = false;
 }
