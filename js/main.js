@@ -2,6 +2,7 @@ let result = 0;
 let b = 0;
 let a = 0;
 let operator;
+let equalsWasPressed = false;
 
 /* Event Listeners */ 
 
@@ -40,33 +41,58 @@ function reset() {
     a = 0;
     b = 0;
     operator = undefined;
+    equalsWasPressed = false;
 }
 
 function add() {
     operator = '+';
-    document.querySelector('#computed').innerText = `${b} ${operator} `;
-    
+
+    if (equalsWasPressed) {
+        b = result;
+        document.querySelector('#computed').innerText = `${result} ${operator} `;
+    } else {
+        document.querySelector('#computed').innerText = `${b} ${operator} `;
+    }
+
     moveVal();
 }
 
 function subtract() {
     operator = '-';
-    document.querySelector('#computed').innerText = `${b} ${operator} `;
-    
+
+    if (equalsWasPressed) {
+        b = result;
+        document.querySelector('#computed').innerText = `${result} ${operator} `;
+    } else {
+        document.querySelector('#computed').innerText = `${b} ${operator} `;
+    }
+
     moveVal();
 }
 
 function multiply() {
     operator = '*';
-    document.querySelector('#computed').innerText = `${b} ${operator} `;
-    
+
+    if (equalsWasPressed) {
+        b = result;
+        document.querySelector('#computed').innerText = `${result} ${operator} `;
+    } else {
+        document.querySelector('#computed').innerText = `${b} ${operator} `;
+    }
+
     moveVal();
 }
 
 function divide() {
     operator = '/';
-    document.querySelector('#computed').innerText = `${b} ${operator} `;
-    
+
+    if (equalsWasPressed) {
+        b = result;
+        document.querySelector('#computed').innerText = `${result} ${operator} `;
+    } else {
+        document.querySelector('#computed').innerText = `${b} ${operator} `;
+    }
+
     moveVal();
 }
 
@@ -106,11 +132,13 @@ function equals() {
             reset();
             break;
     }
+
+    equalsWasPressed = true;
 }
 
 function zero() {
     b *= 10;
-    
+
     update();
 }
 
