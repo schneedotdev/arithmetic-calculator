@@ -30,6 +30,7 @@ document.querySelector('#decimal').addEventListener('click', decimal);
 let a = '0'
 let b = '0';
 let result = '0';
+let storedVal = '0';
 let operator;
 let equalsWasPressed = false;
 
@@ -111,7 +112,7 @@ function clear() {
 
 function sign() {
     b = String(Number(b) * -1);
-    document.querySelector('#computed').innerText = Number(b);
+
     document.querySelector('#result').innerText = Number(b);
 }
 
@@ -132,7 +133,7 @@ function add() {
 
     if (equalsWasPressed) {
         b = result;
-        document.querySelector('#computed').innerText = `${Number(result)} ${operator} `;
+        document.querySelector('#computed').innerText = `${Number(storedVal)} ${operator} `;
     } else {
         document.querySelector('#computed').innerText = `${Number(b)} ${operator} `;
     }
@@ -145,7 +146,7 @@ function subtract() {
 
     if (equalsWasPressed) {
         b = result;
-        document.querySelector('#computed').innerText = `${Number(result)} ${operator} `;
+        document.querySelector('#computed').innerText = `${Number(storedVal)} ${operator} `;
     } else {
         document.querySelector('#computed').innerText = `${Number(b)} ${operator} `;
     }
@@ -158,7 +159,7 @@ function multiply() {
 
     if (equalsWasPressed) {
         b = result;
-        document.querySelector('#computed').innerText = `${Number(result)} ${operator} `;
+        document.querySelector('#computed').innerText = `${Number(storedVal)} ${operator} `;
     } else {
         document.querySelector('#computed').innerText = `${Number(b)} ${operator} `;
     }
@@ -171,7 +172,7 @@ function divide() {
 
     if (equalsWasPressed) {
         b = result;
-        document.querySelector('#computed').innerText = `${Number(result)} ${operator} `;
+        document.querySelector('#computed').innerText = `${Number(storedVal)} ${operator} `;
     } else {
         document.querySelector('#computed').innerText = `${Number(b)} ${operator} `;
     }
@@ -186,41 +187,71 @@ function moveVal() {
 }
 
 function equals() {
-    // if(equalsWasPressed && operator !== undefined) {
-    //     a = result;
-    // }
+    let temp;
+
+    if(equalsWasPressed) {
+        temp = storedVal;
+    } else {
+        temp = a;
+    }
+
+    console.log("temp:", temp);
 
     switch(operator) {
         case undefined:
-            document.querySelector('#result').innerText = b;
+            // if () {
+            //     document.querySelector('#result').innerText = Number(b);
+            // }
+            reset();
             break;
         case '+':
-            result = String(Number(a) + Number(b));
-            document.querySelector('#computed').innerText = `${Number(a)} + ${Number(b)} =`
+            result = String(Number(temp) + Number(b));
+            storedVal = result;
+
+            if (Math.sign(Number(b)) === -1) {
+                document.querySelector('#computed').innerText = `${Number(temp)} + (${Number(b)}) =`
+            } else {
+                document.querySelector('#computed').innerText = `${Number(temp)} + ${Number(b)} =`
+            }
+
             document.querySelector('#result').innerText = Number(result);
+
             reset();
             break;
         case '-':
-            result = String(Number(a) - Number(b));
-            document.querySelector('#computed').innerText = `${Number(a)} - ${Number(b)} =`
+            result = String(Number(temp) - Number(b));
+            storedVal = result;
+
+            if (Math.sign(Number(b)) === -1) {
+                document.querySelector('#computed').innerText = `${Number(temp)} - (${Number(b)}) =`
+            } else {
+                document.querySelector('#computed').innerText = `${Number(temp)} - ${Number(b)} =`
+            }
+            
             document.querySelector('#result').innerText = Number(result);
             reset();
             break;
         case '*':
-            result = String(Number(a) * Number(b));
-            document.querySelector('#computed').innerText = `${Number(a)} * ${Number(b)} =`
+            result = String(Number(temp) * Number(b));
+            storedVal = result;
+
+            document.querySelector('#computed').innerText = `${Number(temp)} * ${Number(b)} =`
             document.querySelector('#result').innerText = Number(result);
             reset();
             break;
         case '/':
-            result = a / b;
-            document.querySelector('#computed').innerText = `${Number(a)} / ${Number(b)} =`
+            result = temp / b;
+            storedVal = result;
+
+            document.querySelector('#computed').innerText = `${Number(temp)} / ${Number(b)} =`
             document.querySelector('#result').innerText = Number(result);
             reset();
             break;
     }
 
     equalsWasPressed = true;
+
+    console.log ("a", a,"\nb", b, "\nresult", result, "\nstoredVal", storedVal, "\nequalsWasPressed", equalsWasPressed);
 }
 
 function reset() {
@@ -228,5 +259,4 @@ function reset() {
     b = '0';
     result = '0';
     operator = undefined;
-    equalsWasPressed = false;
 }
