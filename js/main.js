@@ -123,7 +123,15 @@ function percent() {
 }
 
 function decimal() {
-    
+    if (!b.includes('.')) {
+        b += '.';
+    }
+
+    if(operator === undefined) {
+        document.querySelector('#computed').innerText = b;
+    }
+
+    document.querySelector('#result').innerText = b;
 }
 
 // Operation Button Functions
